@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>첫번쨰 프로젝트다아아앙~~~</h1>
-    <p>예ㅖㅖㅖㅖㅖ</p>
-</body>
-</html>
+let taskInput = document.getElementById("task-input");
+let addButton = document.getElementById("add-button");
+let taskList=[];
+addButton.addEventListener("click", addTask);
+
+
+function addTask(){
+    let taskContent = taskInput.value;
+    taskList.push(taskContent)
+    console.log(taskList);
+    render();
+}
+
+function render(){
+  let resultHTML = "";
+  for(i=0; i<=taskList.length;i++){
+    resultHTML += `<div class ="task">
+    <div>
+     ${taskList[i]}
+    </div>
+    <div>
+      <button>Check</button>
+      <button>Delete</button>
+    </div>
+  </div>`
+  }
+
+  document.getElementById("task-board").innerHTML = resultHTML;
+}
